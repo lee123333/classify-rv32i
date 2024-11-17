@@ -8,8 +8,8 @@ The full name of ReLU is Rectified Linear Unit .It is a type of activation funct
 In the early days, before deep networks were developed, one commonly used algorithm for data prediction was linear regression. As its name implies, linear regression can only be used to predict data that exhibits a linear distribution, making it difficult to describe non-linear relationships with such a function. However, in real life, most phenomena are non-linear. For example, the relationship between income and age in the United States forms a curved distribution. Thus, predicting the income of a person of a given age would clearly be challenging using linear regression.
 
 To address more complex problems, methods with non-linear characteristics, such as logistic regression, were developed. Logistic regression allowed solving simple binary classification problems and paved the way for more advanced models.
-![image](https://hackmd.io/_uploads/HysyIdvxJg.png)
-![image](https://hackmd.io/_uploads/r1sgIuPeJl.png)
+![image](https://github.com/user-attachments/assets/7c3b9db0-94ab-4f17-985d-6d2df3283113)
+
 
 
 #### relu.s

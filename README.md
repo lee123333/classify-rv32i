@@ -246,9 +246,7 @@ return:
 ### Task 3.1: Dot Product
 
 The dot product  is an operation between two vectors that results in a scalar (a single number).In `dot.s`, implement the dot product function, defined as:
-$$
-dot(a,b)=\sum_{i=0}^{n-1} (a_i .b_i )
-$$
+![image](https://github.com/user-attachments/assets/380819d6-c03f-46ea-aa59-6992647190b9)
 
 
 #### dot.s
@@ -344,9 +342,7 @@ set_error_36:
 ### multiply function
 In the `multiply` function, I implemented a simple binary multiplication algorithm. For example, to compute 101×11 (i.e., 5×3 in decimal):
 This can be represented as:
-$$
-101 \times11 =( 101 \times 1 \times 1)  + (101 \times 1 \times 2) 
-$$
+![image](https://github.com/user-attachments/assets/a5358acb-08f8-4fc9-a071-4c82da4a6d69)
 
 Hence, We can perform the multiplication simply by following these steps:
 1. Left-shift the multiplicand (e.g., 101) for each bit in the multiplier, effectively multiplying it by powers of 2.
@@ -387,14 +383,10 @@ Given matrices $A(size, n\times m)$ and $B(size, m\times k)$, the output matrix 
 * Rows of matrix $A$ will have **stride = 1**.
 * Columns of matrix $B$ will require calculating the correct starting index and stride.
 #### matmul.s
-In matmul.s, the matrix is stored in row-major order, meaning elements are laid out in memory row by row. For example, given the matrix: $A=\begin{bmatrix}1 &5  &9  \\ 2 &6  &10  \\ 3 &7  &11  \\ 4 &8  &12  \end{bmatrix}$Its memory layout would be:
-```graphviz
-digraph Array
-{	
-	node[shape=record]
-	store1 [label="<f0>1 |<f1>5 |<f2>9|<f3>2|<f4>6|<f5>10|<f6>..."];
-}
-```
+In matmul.s, the matrix is stored in row-major order, meaning elements are laid out in memory row by row. For example, given the matrix: ![image](https://github.com/user-attachments/assets/2b72916d-db14-47b8-99b1-4da6a6f05083)
+Its memory layout would be:
+![image](https://github.com/user-attachments/assets/2338792f-8cae-4c0a-82cf-65184feb0b55)
+
 In this function, it is divided into an outer loop and an inner loop:
 * **Outer Loop:**
 This loop iterates over the rows of the first matrix. The stride for this matrix is 1, as its rows are laid out contiguously in memory.
@@ -543,13 +535,8 @@ error:
 ```
 ### Task 4 : Absolute Value
 For any real number ${\displaystyle x}$, the absolute value or modulus of ${\displaystyle x}$ is denoted by ${\displaystyle |x|}$, with a vertical bar on each side of the quantity, and is defined as
-$$
-{\displaystyle |x|}=
-\begin{cases}
-x & \text{if } x \geq 0 \\
--x & \text{if } x < 0
-\end{cases}
-$$
+![image](https://github.com/user-attachments/assets/6c4c63f3-8ca6-4dd5-bf8c-79dcb737f57e)
+
 
 #### abs.s
 In `abs.s`, I implemented a method to compute the absolute value of a number using bitwise operations:

@@ -461,9 +461,9 @@ matmul:
     
     li s0, 0 # outer loop counter 
     li s1, 0 # inner loop counter
-    mv s2, a6 # s2=a6(存放的matrix的位置)
-    mv s3, a0 # s3=a0(matrix A的地址)
-    mv s4, a3 # s4=a3(matrix B的地址)
+    mv s2, a6 
+    mv s3, a0 
+    mv s4, a3 
     
 outer_loop_start:
     #s0 is going to be the loop counter for the rows in A
@@ -511,8 +511,8 @@ inner_loop_start:
     lw a5, 20(sp)
     addi sp, sp, 24
     
-    sw t0, 0(s2)    #將dot出來的值存到output matrix中
-    addi s2, s2, 4  #將matrix的位置加4
+    sw t0, 0(s2)   
+    addi s2, s2, 4 
     
     li t1, 4
     add s4, s4, t1 # incrememtning the column on Matrix B
@@ -783,13 +783,13 @@ multiply:
     li a0, 0 
 multiply_loop:
     andi a5, a2, 1     
-    beqz a5, skip_add  # 如果最低位為 0，跳過加法
-    add a0, a0, a3     # 如果最低位為 1，將被乘數 (t5) 加到結果 (a6) 中
+    beqz a5, skip_add  
+    add a0, a0, a3   
 
 skip_add:
-    slli a3, a3, 1      # 將被乘數 (t5) 左移 1 位，相當於被乘數乘以 2
-    srli a2, a2, 1      # 將乘數 (t6) 右移 1 位，相當於移除最低位
-    bnez a2, multiply_loop # 如果 t6 不為 0，繼續迴圈
+    slli a3, a3, 1      
+    srli a2, a2, 1    
+    bnez a2, multiply_loop 
     ret
 ```
 ### Task 2: Write Matrix
@@ -941,13 +941,13 @@ multiply:
     li a0, 0 
 multiply_loop:
     andi a5, a2, 1     
-    beqz a5, skip_add  # 如果最低位為 0，跳過加法
-    add a0, a0, a3     # 如果最低位為 1，將被乘數 (t5) 加到結果 (a6) 中
+    beqz a5, skip_add  
+    add a0, a0, a3    
 
 skip_add:
-    slli a3, a3, 1      # 將被乘數 (t5) 左移 1 位，相當於被乘數乘以 2
-    srli a2, a2, 1      # 將乘數 (t6) 右移 1 位，相當於移除最低位
-    bnez a2, multiply_loop # 如果 t6 不為 0，繼續迴圈
+    slli a3, a3, 1      
+    srli a2, a2, 1     
+    bnez a2, multiply_loop
     ret
 
 ```
@@ -1039,12 +1039,12 @@ classify:
     li a0, 4
     jal malloc # malloc 4 bytes for an integer, rows
     beq a0, x0, error_malloc
-    mv s3, a0 # save m0 rows pointer for later(s3 直的)
+    mv s3, a0 # save m0 rows pointer for later
     
     li a0, 4
     jal malloc # malloc 4 bytes for an integer, cols
     beq a0, x0, error_malloc
-    mv s4, a0 # save m0 cols pointer for later（ s4 橫的）
+    mv s4, a0 # save m0 cols pointer for later
     
     lw a1, 4(sp) # restores the argument pointer
     
@@ -1389,13 +1389,13 @@ multiply:
     li a0, 0 
 multiply_loop:
     andi a5, a2, 1     
-    beqz a5, skip_add  # 如果最低位為 0，跳過加法
-    add a0, a0, a3     # 如果最低位為 1，將被乘數 (t5) 加到結果 (a6) 中
+    beqz a5, skip_add 
+    add a0, a0, a3   
 
 skip_add:
-    slli a3, a3, 1      # 將被乘數 (t5) 左移 1 位，相當於被乘數乘以 2
-    srli a2, a2, 1      # 將乘數 (t6) 右移 1 位，相當於移除最低位
-    bnez a2, multiply_loop # 如果 t6 不為 0，繼續迴圈
+    slli a3, a3, 1     
+    srli a2, a2, 1     
+    bnez a2, multiply_loop
     ret
 
     

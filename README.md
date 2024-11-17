@@ -246,10 +246,11 @@ return:
 ### Task 3.1: Dot Product
 
 The dot product  is an operation between two vectors that results in a scalar (a single number).In `dot.s`, implement the dot product function, defined as:
+
 ![公式](https://latex.codecogs.com/svg.latex?dot(a,b)=\sum_{i=0}^{n-1}(a_i\cdot&space;b_i))
 
 
-![image](https://github.com/user-attachments/assets/380819d6-c03f-46ea-aa59-6992647190b9)
+
 
 
 #### dot.s
@@ -345,7 +346,7 @@ set_error_36:
 ### multiply function
 In the `multiply` function, I implemented a simple binary multiplication algorithm. For example, to compute 101×11 (i.e., 5×3 in decimal):
 This can be represented as:
-![image](https://github.com/user-attachments/assets/a5358acb-08f8-4fc9-a071-4c82da4a6d69)
+
 
 Hence, We can perform the multiplication simply by following these steps:
 1. Left-shift the multiplicand (e.g., 101) for each bit in the multiplier, effectively multiplying it by powers of 2.

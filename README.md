@@ -129,9 +129,9 @@ Argmax is a mathematical and computational operation that returns the argument (
 In argmax.s, implement the argmax function, which returns the index of the largest element in a given vector. If multiple elements share the largest value, return the smallest index. This function operates on 1D vectors.
 #### argmax.s
 In `argmax.s`.First, load the first element of the array into t0. Since RISC-V memory operates in 4-byte units (one word), I incremented the pointer by 4 before reading each subsequent element and I implemented two methods to find the max value and its index.
-**1. Using `ble`:** 
+1. **Using `ble`:** 
 In this approach, I used the `ble` instruction to compare the size of each element. If the newly read value was greater than the previous maximum, it replaced the current maximum, and I updated the index. Otherwise, it jumped to the loop_continue label to proceed with the loop.
-**2. Using branchless logic :**
+2. **Using branchless logic :**
 In this method, I first subtracted the two values to be compared. I then applied `srai` to extend the sign bit of the result to 32 bits (t5). Next, I performed a `not` operation on the extended value (t6). Using these result (t5 & t6), I applied a bitwise `and` to the two values being compared. As a result, the smaller value became zero, while the larger value retained its original value. Adding these two values yielded the maximum value, effectively replacing the need for conditional branching.
 
 ```s

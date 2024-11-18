@@ -299,29 +299,28 @@ dot:
     slli a4,a4,2
     addi sp,sp,-12
     sw ra,0(sp)
-    sw a3,4(sp)
+    sw a1,4(sp)
     sw a2,8(sp)
- 
+    mv t3,a0
+    mv t4,a1
 
 
 loop_start:
-    bge t1, a2, loop_end    # when t1 = a2 end loop (end for loop)
+    beq t1, a2, loop_end    # when t1 = a2 end loop (end for loop)
 
-    addi sp, sp, -4
-    sw a0, 0(sp)
-    lw a2,0(a0)
-    lw a3,0(a1)
+
+    lw a1,0(t3)
+    lw a2,0(t4)
     
     jal multiply
     
     add t0,t0,a0
-    lw a0, 0(sp)
-    addi sp, sp, 4
-    lw a3, 4(sp)
+
+    lw a1, 4(sp)
     lw a2, 8(sp)
     addi t1,t1,1
-    add a0,a0,a3
-    add a1,a1,a4
+    add t3,t3,a3
+    add t4,t4,a4
     j loop_start
 
 loop_end:
@@ -329,7 +328,7 @@ loop_end:
     mv a0, t0
     lw ra,0(sp)
     addi sp,sp,12
-    jr ra
+    ret
 
 error_terminate:
     blt a2, t0, set_error_36
@@ -365,17 +364,16 @@ Hence, We can perform the multiplication simply by following these steps:
 multiply: 
 
     li a0, 0 
-
 multiply_loop:
     andi a5, a2, 1     
     beqz a5, skip_add  
-    add a0, a0, a3     
+    add a0, a0, a1     
 
 skip_add:
-    slli a3, a3, 1      
+    slli a1, a1, 1      
     srli a2, a2, 1      
     bnez a2, multiply_loop 
-    ret
+    ret   
 ```
 
 ### Task 3.2: Matrix Multiplication

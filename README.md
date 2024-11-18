@@ -948,11 +948,11 @@ skip_add:
 ### Task 3: Classification
 In `classify.s`, bring everything together to classify an input using two weight matrices and the ReLU and ArgMax functions. Use the following sequence:
 1. Matrix Multiplication:
-$\text{hidden_layer} = \text{matmul}(m0, \text{input})$
+hidden_layer = matmul(m0, input)
 2. ReLU Activation:
-$\text{relu(hidden_layer)}$
+relu(hidden_layer)  
 3. Second Matrix Multiplication:
-$\text{scores} = \text{matmul}(m1, \text{hidden_layer})$
+scores = matmul(m1, hidden_layer)  
 4. Classification:
 Call `argmax` to find the index of the highest score.
 #### classify.s

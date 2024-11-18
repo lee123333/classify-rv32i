@@ -602,11 +602,11 @@ In `read_matrix.s`, implement the function to read a binary matrix from a file a
 
 #### read_matrix.s
 To replace the original mul instruction with the custom multiply function in this part of the code:
-**1. Replace `mul` with `multiply`:**
+1. **Replace `mul` with `multiply`:**
 The custom `multiply` function, which simulates multiplication using bitwise operations, is called instead of using the mul instruction.
-**2. Save affected registers:**
+2. **Save affected registers:**
 Identify the registers that are used in the loop or are critical to the computation and may be altered by the `multiply` function. These registers are pushed onto the stack using the sw instruction before the function call.
-**3. Restore saved registers:**
+3. **Restore saved registers:**
 After the `multiply` function completes, the saved registers are restored from the stack using the lw instruction. This ensures that the function's temporary changes do not disrupt the main computation flow.
 
 ```s
@@ -792,11 +792,11 @@ In `write_matrix.s`, implement the function to write a matrix to a binary file. 
 
 #### write_matrix.s
 To replace the original mul instruction with the custom multiply function in this part of the code:
-**1. Replace `mul` with `multiply`:**
+1. **Replace `mul` with `multiply`:**
 The custom `multiply` function, which simulates multiplication using bitwise operations, is called instead of using the mul instruction.
-**2. Save affected registers:**
+2. **Save affected registers:**
 Identify the registers that are used in the loop or are critical to the computation and may be altered by the `multiply` function. These registers are pushed onto the stack using the sw instruction before the function call.
-**3. Restore saved registers:**
+3. **Restore saved registers:**
 After the `multiply` function completes, the saved registers are restored from the stack using the lw instruction. This ensures that the function's temporary changes do not disrupt the main computation flow.
 ```s
 .globl write_matrix
@@ -958,11 +958,11 @@ $\text{scores} = \text{matmul}(m1, \text{hidden_layer})$
 Call `argmax` to find the index of the highest score.
 #### classify.s
 To replace the original mul instruction with the custom multiply function in this part of the code:
-**1. Replace `mul` with `multiply`:**
+1. **Replace `mul` with `multiply`:**
 The custom `multiply` function, which simulates multiplication using bitwise operations, is called instead of using the mul instruction.
-**2. Save affected registers:**
+2. **Save affected registers:**
 Identify the registers that are used in the loop or are critical to the computation and may be altered by the `multiply` function. These registers are pushed onto the stack using the sw instruction before the function call.
-**3. Restore saved registers:**
+3. **Restore saved registers:**
 After the `multiply` function completes, the saved registers are restored from the stack using the lw instruction. This ensures that the function's temporary changes do not disrupt the main computation flow.
 ```s
 .globl classify

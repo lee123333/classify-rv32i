@@ -380,9 +380,8 @@ skip_add:
 
 ### Task 3.2: Matrix Multiplication
 In `matmul.s`, implement matrix multiplication, where:
-$$
-C[i][j] = \text{dot}(A[i], B[:,j]) 
-$$
+![公式](https://latex.codecogs.com/svg.latex?C[i][j]=\text{dot}(A[i],B[:,j]))
+
 Given matrices $A(size, n\times m)$ and $B(size, m\times k)$, the output matrix $C$ will have dimensions $n\times k$. 
 * Rows of matrix $A$ will have **stride = 1**.
 * Columns of matrix $B$ will require calculating the correct starting index and stride.
